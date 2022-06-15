@@ -4,6 +4,9 @@ defmodule ScrapingData.Scraper do
       Finch.build(:get, "https://www.latlong.net/category/cities-236-15.html")
       |> Finch.request(MyFinch)
 
-    body
+    {:ok, document} = Floki.parse_document(body)
+
+    document
+    |> Floki.find("table tr")
   end
 end
