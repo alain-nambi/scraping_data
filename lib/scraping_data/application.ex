@@ -14,6 +14,7 @@ defmodule ScrapingData.Application do
       ScrapingDataWeb.Telemetry,
       # Start the PubSub system
       {Phoenix.PubSub, name: ScrapingData.PubSub},
+      {Finch, name: MyFinch},
       # Start the Endpoint (http/https)
       ScrapingDataWeb.Endpoint
       # Start a worker by calling: ScrapingData.Worker.start_link(arg)
