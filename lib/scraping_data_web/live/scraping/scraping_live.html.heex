@@ -1,0 +1,23 @@
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%= for cities <- @list_cities do %>
+            <tr>
+                <td><%= cities.id %></td>
+                <td><%= cities.city %></td>
+                <td><%= cities.state %></td>
+                <td><%= cities.latitude %></td>
+                <td><%= cities.longitude %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
