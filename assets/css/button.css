@@ -1,0 +1,70 @@
+.button__insert,
+.button__remove {
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+.button__insert {
+    background: #3498db;
+    border-color: #3498db;
+}
+
+.button__remove {
+    background: #e74c3c;
+    border-color: #e74c3c;
+}
+
+.button__insert:hover {
+    background: #1187d6;
+    border-color: #1187d6;
+}
+
+.button__remove:hover {
+    background: #dc2d19;
+    border-color: #dc2d19;
+}
+
+.button__insert:active {
+    background: #086eb2;
+}
+
+.button__remove:active {
+    background: #a41b0b;
+}
+
+.button__text {
+    transition: all 0.2s;
+}
+
+.button--loading .button__text {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.button--loading::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 3px solid #fff;
+    border-left-color: transparent;
+    border-radius: 50%;
+    animation: button-loading-spinner 1s linear infinite;
+}
+
+@keyframes button-loading-spinner {
+    from {
+        transform: rotate(0turn);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}

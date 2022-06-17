@@ -1,5 +1,6 @@
 /* This file is for your main application CSS */
 @import "./phoenix.css";
+@import "./button.css";
 
 /* Alerts and form errors used by phx.new */
 .alert {
@@ -42,7 +43,7 @@
 }
 
 .phx-click-loading {
-  opacity: 0.5;
+  /* opacity: 0.5; */
   transition: opacity 1s ease-out;
 }
 
