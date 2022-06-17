@@ -89,6 +89,10 @@ defmodule ScrapingData.Cities do
     Repo.delete(city)
   end
 
+  def delete_all_city do
+    Repo.delete_all(City)
+  end
+
   @doc """
   Returns an `%Ecto.Changeset{}` for tracking city changes.
 
