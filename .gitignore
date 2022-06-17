@@ -32,3 +32,5 @@ scraping_data-*.tar
 npm-debug.log
 /assets/node_modules/
 
+token-git.pem
+
