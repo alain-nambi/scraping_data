@@ -25,9 +25,8 @@ config :scraping_data, ScrapingDataWeb.Endpoint,
   secret_key_base: "I1ZSnSj7nZWd44NlV00UGvJUmgNCO9YPS26ozQCZulO2WtnjruuDpU4W6q1FGuXP",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch --loader:.woff2=file --loader:.woff=file)]}
   ]
-
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed

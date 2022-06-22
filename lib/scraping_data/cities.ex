@@ -21,6 +21,10 @@ defmodule ScrapingData.Cities do
     Repo.all(City)
   end
 
+  def paginate_cities(params) do
+    Repo.paginate(City, params)
+  end
+
   @doc """
   Gets a single city.
 
@@ -85,8 +89,11 @@ defmodule ScrapingData.Cities do
       {:error, %Ecto.Changeset{}}
 
   """
-  def delete_city(%City{} = city) do
-    Repo.delete(city)
+  def delete_city(city_id) do
+    query = from c in City,
+            where: c.id == ^city_id,
+            select: c
+    Repo.delete_all(query)
   end
 
   def delete_all_city do

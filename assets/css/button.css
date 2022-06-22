@@ -16,6 +16,10 @@
     border-color: #e74c3c;
 }
 
+.button__delete {
+    cursor: pointer;
+}
+
 .button__insert:hover {
     background: #1187d6;
     border-color: #1187d6;

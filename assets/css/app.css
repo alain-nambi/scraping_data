@@ -1,6 +1,14 @@
 /* This file is for your main application CSS */
 @import "./phoenix.css";
 @import "./button.css";
+@import "./pagination.css";
+
+@import '../node_modules/material-icons/iconfont/material-icons.css';
+
+.center {
+  text-align: center;
+}
+
 
 /* Alerts and form errors used by phx.new */
 .alert {

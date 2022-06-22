@@ -21,17 +21,64 @@
             <th>State</th>
             <th>Latitude</th>
             <th>Longitude</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-        <%= for cities <- @list_cities do %>
+        <%= for cities <- @list_cities.entries do %>
             <tr>
                 <td><%= cities.id %></td>
                 <td><%= cities.city %></td>
                 <td><%= cities.state %></td>
                 <td><%= cities.latitude %></td>
                 <td><%= cities.longitude %></td>
+                <td>
+                    <a 
+                        title="Delete"
+                        class="material-icons button__delete" 
+                        phx-click="delete-cities-by-id" 
+                        phx-value-id={cities.id}
+                    >
+                        delete_icon
+                    </a>
+                </td>
             </tr>
         <% end %>
     </tbody>
 </table>
+
+<div class="center">
+    <div class="pagination">
+        <%= if @list_cities.page_number > 1 do %>
+            <a 
+                class="material-icons"
+                data-phx-link="patch" 
+                data-phx-link-state="push" 
+                href={Routes.scraping_path(@socket, :scraping, page: @list_cities.page_number - 1)}
+            >
+                chevron_left
+            </a>
+        <% end %>
+            
+        <%= if @list_cities.total_pages > 1 do %>
+            <%= for page <- Enum.to_list(1..@list_cities.total_pages) do %>
+                <a 
+                    class={if @list_cities.page_number == page, do: "active"}
+                    phx-click="page-navigation" 
+                    phx-value-page={page}><%= page %>
+                </a>
+            <% end %>
+        <% end %>
+    
+        <%= if @list_cities.page_number < @list_cities.total_pages do %>
+            <a 
+                class="material-icons"
+                data-phx-link="patch" 
+                data-phx-link-state="push" 
+                href={Routes.scraping_path(@socket, :scraping, page: @list_cities.page_number + 1)}
+            >
+                chevron_right
+            </a>
+        <% end %>
+    </div>
+</div>
